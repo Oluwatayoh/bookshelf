@@ -1,0 +1,38 @@
+<div class="animated pulse">
+  <div class="modal-header-wrap">
+    <div (click)="close_onClick()" class="modal-close-ico" aria-hidden="true">X</div>
+  </div>
+  <div class="modal-baseWrap">
+    <br>
+    <form [formGroup]="bookForm">
+      <div class="input-group">
+        <div class="input-group-wrap">
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="selectedCategoryId">
+              <mat-option></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-group-wrap">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Book Title" formControlName="bookName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-group-wrap">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Author" formControlName="author">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="btn-wrap">
+      <div class="blue-btn">Submit</div>
+    </div>
+  </div>
+</div>
