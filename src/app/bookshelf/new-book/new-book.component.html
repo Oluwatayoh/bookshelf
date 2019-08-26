@@ -8,10 +8,7 @@
       <div class="input-group">
         <div class="input-group-wrap">
           <mat-form-field>
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="selectedCategoryId">
-              <mat-option></mat-option>
-            </mat-select>
+            <input matInput type="text" placeholder="Category" formControlName="categoryName">
           </mat-form-field>
         </div>
       </div>
@@ -29,10 +26,14 @@
           </mat-form-field>
         </div>
       </div>
+
+      <mat-slide-toggle [checked]="isFavourite">
+        Favourite
+      </mat-slide-toggle>
     </form>
 
     <div class="btn-wrap">
-      <div class="blue-btn">Submit</div>
+      <div (click)="onSaveBook()" class="blue-btn">Submit</div>
     </div>
   </div>
 </div>

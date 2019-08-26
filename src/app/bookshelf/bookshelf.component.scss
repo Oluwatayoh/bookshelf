@@ -64,9 +64,12 @@
 
 .categoryItem:hover,
 .active {
-  background-color: #004983;
+  background-color: rgba(0, 73, 131, 0.839215686274509);
   border-top: 0px solid;
   cursor: pointer;
+  box-shadow: 0 0px 5px 2px rgba(58, 58, 58, 0.09);
+  margin: 0 5px 5px 0px;
+  border-radius:0 5px 5px 0px;
   i,
   a {
     color: #ffffff;
@@ -119,5 +122,28 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .shelf_layout {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .divider {
+    display: none !important;
+  }
+
+  .emp {
+    margin-top: 0px !important;
+  }
+
+  .add-btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 90%;
+    margin-bottom: 20px;
   }
 }

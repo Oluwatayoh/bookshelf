@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "categoryName": "Adventure Novel",
+      "books": [],
+      "id": 1
+    },
+    {
+      "categoryName": "Comic Books",
+      "books": [],
+      "id": 2
+    }
+  ]
+}

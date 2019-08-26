@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .topBarWrap {
   border-bottom: 1px solid rgba(158, 167, 187, 0.2);
   display: flex;
@@ -315,69 +316,6 @@
   }
 }
 
-/* Mobile Styles */
-
-@media only screen and (max-width: 900px) {
-  .topBarWrap {
-    justify-content: space-between !important;
-    box-shadow: 0px 3px 2px 0px #f2f2f2;
-  }
-  .sidenav {
-    height: 100%;
-    width: 68px;
-    position: fixed;
-    z-index: 1;
-    background: #ffffff;
-    border-right: none !important;
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-  .top-wrap {
-    justify-content: space-between;
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-    padding: 6px;
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-  }
-  .prof-notif {
-    display: none !important;
-  }
-  .inner-UD {
-    display: none !important;
-  }
-  .srch {
-    display: none !important; // input {
-    //   display: none !important;
-    // }
-    // i:hover {
-    //   input {
-    //     display: block !important;
-    //   }
-    // }
-  }
-  .sidebarBTNToggle {
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-    justify-content: flex-end;
-    padding: 0.55em;
-    border-bottom: none;
-    box-shadow: 0px 3px 2px 0px #f2f2f2;
-  }
-  .sidebarBTNToggle:hover {
-    cursor: pointer;
-    background: none !important;
-  }
-  .navItem {
-    padding-top: 15px;
-  }
-  .navItem a {
-    font-size: 18px;
-  }
-}
-
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
@@ -623,5 +561,39 @@ select {
     line-height: 19px;
     letter-spacing: 0.01em;
     color: #9ea7bb;
+  }
+}
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 900px) {
+  .topBarWrap {
+    justify-content: space-between !important;
+    box-shadow: 0px 3px 2px 0px #f2f2f2;
+  }
+
+  .top-wrap {
+    justify-content: space-between;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    padding: 6px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+  .prof-notif {
+    display: none !important;
+  }
+  .inner-UD {
+    display: none !important;
+  }
+  .srch {
+    display: none !important;
+  }
+
+  .layout {
+    background: rgba(0, 73, 131, 0.05);
+    height: auto;
+    padding: 0px;
   }
 }

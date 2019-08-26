@@ -15,7 +15,7 @@
     </form>
 
     <div class="btn-wrap">
-      <div class="blue-btn">Submit</div>
+      <div  (click)="selectedCategory ? onUpdateCategory() : onSaveCategory()" class="blue-btn">Submit</div>
     </div>
   </div>
 </div>
