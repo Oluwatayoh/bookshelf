@@ -2,12 +2,30 @@
   "categories": [
     {
       "categoryName": "Adventure Novel",
-      "books": [],
+      "books": [
+        {
+          "bookName": "Anaconda",
+          "author": "bill Anthy"
+        },
+        {
+          "bookName": "Star War",
+          "author": "Lobby"
+        },
+        {
+          "bookName": "Iron man",
+          "author": "Tony Stark"
+        }
+      ],
       "id": 1
     },
     {
       "categoryName": "Comic Books",
-      "books": [],
+      "books": [
+        {
+          "bookName": "Soccer Boi",
+          "author": "Mee John"
+        }
+      ],
       "id": 2
     }
   ]

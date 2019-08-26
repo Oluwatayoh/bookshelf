@@ -14,16 +14,9 @@ import { IBooks } from '../models/books';
 export class BookshelfComponent implements OnInit {
 
   categories: IShelf[] = [];
-  books: IBooks[] = [];
-  bookChunks: IBooks[] = [];
+  books: IShelf[] = [];
   selectedCategory: IShelf;
-  selectedBook: IBooks;
   subscription: Subscription;
-  private pagination = {
-    page: 0,
-    length: 0,
-    array_chunks: []
-  };
 
   categoryListEmpty = false;
   categoryListShow = true;
@@ -45,51 +38,27 @@ export class BookshelfComponent implements OnInit {
   }
 
   onShowAddNewBook() {
-    this.subscription = this._shelfService.getBooksByCategoryId(this.selectedCategory.id)
-    .subscribe(data => this.books = data);
-    console.log(this.books)
     this.newBook = true;
-  }
-
-  private chunkBookArray(chunk_size) {
-    const results = [];
-    while (this.books.length) {
-      results.push(this.books.splice(0, chunk_size));
-    }
-    return results;
-  }
-
-  public loadMoreCategories() {
-    if (this.pagination.page < this.pagination.length) {
-      this.books = this.bookChunks.concat(this.pagination.array_chunks[this.pagination.page]);
-      this.pagination.page += 1;
-    }
-  }
-
-  onSelectedBook(book){
-    this.selectedBook = book;
-    console.log(this.selectedBook);
   }
 
   close_onClick(e) {
     this.newCategory = false;
     this.newBook = false;
     this.getCategory();
-    // this.getUpdatedCategory(e);
+    this.getBooksbyCategoryId();
+  }
+
+  private getBooksbyCategoryId() {
+    // get books by categoryid
+    this.subscription = this._shelfService.getByCategoryId(this.selectedCategory.id)
+      .subscribe(data => this.books = data.books);
   }
 
   onSelectedCategory(category) {
     this.selectedCategory = category;
-    console.log(this.selectedCategory);
+    this.getBooksbyCategoryId();
     this.bookshow = true;
   }
-
-  // public getUpdatedCategory(category) {
-  //   console.log(this.selectedCategory);
-  //   if (this.selectedCategory || this.selectedCategory === 0) {
-  //     this.categories.splice(this.selectedCategory['index'], 1, category.data);
-  //   }
-  // }
 
   onShowNewCategory(category?, index?) {
     if ((index || index === 0) && category) {

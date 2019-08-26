@@ -28,6 +28,10 @@ export class ShelfService {
       );
   }
 
+  getByCategoryId(id: number): Observable<any> {
+    return this.http.get<any>( this._url + '/categories/' + id)
+  }
+
   postCategory(category) {
     return this.http.post<any>(this._url + '/categories', JSON.stringify(category), this.options)
       .pipe(
@@ -53,19 +57,5 @@ export class ShelfService {
       );
   }
 
-  postBook(id, book) {
-    return this.http.post<IBooks[]>(this._url + '/categories/' + id, JSON.stringify(book), this.options)
-      .pipe(
-        tap(() => {
-          this._refreshNeeded$.next();
-        })
-      );
-  }
 
-  getBooksByCategoryId(id): Observable<IBooks[]> {
-    return this.http.get<IBooks[]>(this._url + '/categories/' + id)
-      .pipe(
-        retry(1)
-      );
-  }
 }

@@ -73,11 +73,11 @@
           </div>
 
           <div class="bookList">
-            <mat-card class="booksCard col-sm-5">
+            <mat-card class="booksCard col-sm-5" *ngFor="let book of books;">
               <div class="crd-body">
                 <div class="title">
-                  <h6>Spider Man</h6>
-                  <small>Peter Parker</small>
+                  <h6>{{book?.bookName}}</h6>
+                  <small>{{book?.author}}</small>
                 </div>
                 <div class="action">
                   <i class="fa fa-star"></i>
