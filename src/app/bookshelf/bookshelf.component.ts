@@ -15,6 +15,7 @@ export class BookshelfComponent implements OnInit {
 
   categories: IShelf[] = [];
   books: IShelf[] = [];
+  // books: any = []; 
   selectedCategory: IShelf;
   subscription: Subscription;
 
@@ -37,10 +38,6 @@ export class BookshelfComponent implements OnInit {
     console.log(this.categories);
   }
 
-  onShowAddNewBook() {
-    this.newBook = true;
-  }
-
   close_onClick(e) {
     this.newCategory = false;
     this.newBook = false;
@@ -52,6 +49,7 @@ export class BookshelfComponent implements OnInit {
     // get books by categoryid
     this.subscription = this._shelfService.getByCategoryId(this.selectedCategory.id)
       .subscribe(data => this.books = data.books);
+      console.log(this.books)
   }
 
   onSelectedCategory(category) {
@@ -59,6 +57,10 @@ export class BookshelfComponent implements OnInit {
     this.getBooksbyCategoryId();
     this.bookshow = true;
   }
+
+  onShowAddNewBook() {
+    this.newBook = true;
+  } 
 
   onShowNewCategory(category?, index?) {
     if ((index || index === 0) && category) {
@@ -87,6 +89,29 @@ export class BookshelfComponent implements OnInit {
       if (result.value) {
         this._shelfService.deleteCategory(id).subscribe(data => {
           this.getCategory();
+        })
+        swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+
+  onDeleteBook(bookId) {
+    swal.fire({
+      title: 'Are you sure you want to delete this book?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        this._shelfService.deleteBook(bookId).subscribe(data => {
+          this.getBooksbyCategoryId();
         })
         swal.fire(
           'Deleted!',

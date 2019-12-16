@@ -25,7 +25,7 @@ export class NewBookComponent implements OnInit {
   static formControls = () => {
     return {
       categoryName: ['', []],
-      // bookId:['',[]],
+      bookId: [''],
       bookName: ['', [<any>Validators.required, Validators.minLength(3)]],
       author: ['', [<any>Validators.required, Validators.minLength(3)]],
       isFavourite: Boolean
@@ -40,13 +40,23 @@ export class NewBookComponent implements OnInit {
   ngOnInit() {
     this.bookForm = this._formBuilder.group(NewBookComponent.formControls());
     if (this.selectedCategory) {
-      this.bookForm.patchValue(this.selectedCategory);
+      this.bookForm.patchValue({
+        categoryName: this.selectedCategory.categoryName,
+        bookName: this.selectedCategory.id,
+        author: this.selectedCategory.books.author,
+        isFavourite: this.selectedCategory.books.isFavourite
+      });
       console.log(this.selectedCategory);
     }
   }
 
+  callData(){
+
+  }
+
   onSaveBook() {
     const bookModel = <IBooks>{
+      bookId: this.randomID(),
       bookName: this.bookForm.controls['bookName'].value,
       author: this.bookForm.controls['author'].value,
       isFavourite: this.bookForm.controls['isFavourite'].value
@@ -73,27 +83,6 @@ export class NewBookComponent implements OnInit {
         });
         this.close_onClick();
       });
-    // this.subscription = this._shelfService.postBook(this.selectedCategory.id, bookModel).subscribe(
-    //   (payload) => {
-    //     swal.fire({
-    //       type: 'success',
-    //       title: 'Book Saved Successfully',
-    //       showCancelButton: false,
-    //       timer: 1500
-    //     });
-    //     console.log(payload);
-    //     this.updatedCategory.emit(payload);
-    //     this.close_onClick();
-    //   },
-    //   (error) => {
-    //     swal.fire({
-    //       type: 'warning',
-    //       title: 'Error Occur while registering',
-    //       showConfirmButton: false,
-    //       timer: 1500
-    //     });
-    //     this.close_onClick();
-    //   });
   }
 
   close_onClick() {
@@ -104,5 +93,15 @@ export class NewBookComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+
+  randomID() {
+    var text = "";
+    var possible =  "ABCDYHHHasds88466w";
+    for (var i = 0; i < 10; i++)
+      text += possible.charAt(Math.random() * possible.length);
+
+    return text;
   }
 }

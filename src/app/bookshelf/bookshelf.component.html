@@ -80,9 +80,9 @@
                   <small>{{book?.author}}</small>
                 </div>
                 <div class="action">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-edit"></i>
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-star"  [class.favouriteColor]="book?.isFavourite"></i>
+                  <i class="fa fa-edit" (click)="onShowAddNewBook()"></i>
+                  <i class="fa fa-trash" (click)="onDeleteBook(book.bookId)"></i>
                 </div>
               </div>
             </mat-card>

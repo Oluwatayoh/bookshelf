@@ -28,6 +28,10 @@ export class ShelfService {
       );
   }
 
+  // getBooksByCategoryId(id: number): Observable<any> {
+  //   return this.http.get<any>( this._url + '/categories/' + id)
+  // }
+
   getByCategoryId(id: number): Observable<any> {
     return this.http.get<any>( this._url + '/categories/' + id)
   }
@@ -43,6 +47,13 @@ export class ShelfService {
 
   deleteCategory(id) {
     return this.http.delete<IShelf>(this._url + '/categories/' + id, this.options)
+      .pipe(
+        retry(1)
+      )
+  }
+
+  deleteBook(bookId) {
+    return this.http.delete<IShelf>(this._url + '/categories/books' + bookId, this.options)
       .pipe(
         retry(1)
       )

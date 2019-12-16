@@ -1,32 +1,27 @@
 {
   "categories": [
     {
-      "categoryName": "Adventure Novel",
+      "categoryName": "Religion Books",
       "books": [
         {
-          "bookName": "Anaconda",
-          "author": "bill Anthy"
+          "bookId": "A4C6HYHYBH",
+          "bookName": "Books of Eli",
+          "author": "Hobbs Anabel"
         },
         {
-          "bookName": "Star War",
-          "author": "Lobby"
+          "bookId": "CaDHwHDCsD",
+          "bookName": "Holy Spirit",
+          "author": "Mick Nohel",
+          "isFavourite": true
         },
         {
-          "bookName": "Iron man",
-          "author": "Tony Stark"
+          "bookId": "8Y6Hw64CBd",
+          "bookName": "All Sufficient God",
+          "author": "Mee Liu",
+          "isFavourite": true
         }
       ],
       "id": 1
-    },
-    {
-      "categoryName": "Comic Books",
-      "books": [
-        {
-          "bookName": "Soccer Boi",
-          "author": "Mee John"
-        }
-      ],
-      "id": 2
     }
   ]
 }
